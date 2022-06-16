@@ -20,6 +20,28 @@ python run_glue_tensorized.py   --model_name_or_path bert-base-cased   --task_na
 ```
 
 
+\begin{tabular}{lllr}
+\toprule
+           &   &       Type &  NumParams \\
+Compression & {} &            &            \\
+\midrule
+baselines & 0 &    Full-FT &    100.000 \\
+           & 1 &   Adapters &      3.600 \\
+           & 2 &  DiffPrune &      0.500 \\
+           & 3 &     BitFit &      0.080 \\
+tensorized & 0 &       cp-2 &      0.048 \\
+           & 1 &       tr-2 &      0.058 \\
+           & 2 &       tt-2 &      0.050 \\
+           & 3 &   tucker-2 &      0.048 \\
+           & 4 &       cp-4 &      0.058 \\
+           & 5 &       tr-4 &      0.122 \\
+           & 6 &       tt-4 &      0.073 \\
+           & 7 &   tucker-4 &      0.061 \\
+\bottomrule
+\end{tabular}
+
+
+
 
 
 
