@@ -20,6 +20,8 @@ python run_glue_tensorized.py   --model_name_or_path bert-base-cased   --task_na
 ```
 
 
+## Accuracy metrics with compression approaches
+
 |                                  |   MRPC |     RTE |    STSB |
 |:---------------------------------|-------:|--------:|--------:|
 | ('baselines', 'Adapters', '-')   |  0.896 |   0.688 |   0.873 |
@@ -32,3 +34,23 @@ python run_glue_tensorized.py   --model_name_or_path bert-base-cased   --task_na
 | ('tensorized', 'tt', 4.0)        |  0.909 |   0.711 |   0.886 |
 | ('tensorized', 'tucker', 2.0)    |  0.903 |   0.701 |   0.872 |
 | ('tensorized', 'tucker', 4.0)    |  0.904 |   0.711 |   0.881 |
+
+
+
+
+## Num Parameters between popular approaches
+
+|                   | Type      |   NumParams |
+|:------------------|:----------|------------:|
+| ('baselines', 0)  | Full-FT   |     100     |
+| ('baselines', 1)  | Adapters  |       3.6   |
+| ('baselines', 2)  | DiffPrune |       0.5   |
+| ('baselines', 3)  | BitFit    |       0.08  |
+| ('tensorized', 0) | cp-2      |       0.048 |
+| ('tensorized', 1) | tr-2      |       0.058 |
+| ('tensorized', 2) | tt-2      |       0.05  |
+| ('tensorized', 3) | tucker-2  |       0.048 |
+| ('tensorized', 4) | cp-4      |       0.058 |
+| ('tensorized', 5) | tr-4      |       0.122 |
+| ('tensorized', 6) | tt-4      |       0.073 |
+| ('tensorized', 7) | tucker-4  |       0.061 |
