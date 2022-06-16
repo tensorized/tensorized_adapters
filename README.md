@@ -20,31 +20,15 @@ python run_glue_tensorized.py   --model_name_or_path bert-base-cased   --task_na
 ```
 
 
-\begin{tabular}{lllr}
-\toprule
-           &   &       Type &  NumParams \\
-Compression & {} &            &            \\
-\midrule
-baselines & 0 &    Full-FT &    100.000 \\
-           & 1 &   Adapters &      3.600 \\
-           & 2 &  DiffPrune &      0.500 \\
-           & 3 &     BitFit &      0.080 \\
-tensorized & 0 &       cp-2 &      0.048 \\
-           & 1 &       tr-2 &      0.058 \\
-           & 2 &       tt-2 &      0.050 \\
-           & 3 &   tucker-2 &      0.048 \\
-           & 4 &       cp-4 &      0.058 \\
-           & 5 &       tr-4 &      0.122 \\
-           & 6 &       tt-4 &      0.073 \\
-           & 7 &   tucker-4 &      0.061 \\
-\bottomrule
-\end{tabular}
-
-
-
-
-
-
-
-
-
+|                                  |   MRPC |     RTE |    STSB |
+|:---------------------------------|-------:|--------:|--------:|
+| ('baselines', 'Adapters', '-')   |  0.896 |   0.688 |   0.873 |
+| ('baselines', 'BitFit', '-')     |  0.904 |   0.723 |   0.892 |
+| ('baselines', 'Diff-Prune', '-') |  0.897 |   0.706 |   0.86  |
+| ('baselines', 'Full-FT', '-')    |  0.89  |   0.705 |   0.889 |
+| ('tensorized', 'cp', 2.0)        |  0.906 |   0.682 |   0.883 |
+| ('tensorized', 'cp', 4.0)        |  0.906 |   0.704 |   0.886 |
+| ('tensorized', 'tt', 2.0)        |  0.905 |   0.682 |   0.885 |
+| ('tensorized', 'tt', 4.0)        |  0.909 |   0.711 |   0.886 |
+| ('tensorized', 'tucker', 2.0)    |  0.903 |   0.701 |   0.872 |
+| ('tensorized', 'tucker', 4.0)    |  0.904 |   0.711 |   0.881 |
